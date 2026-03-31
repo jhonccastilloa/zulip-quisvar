@@ -1,15 +1,15 @@
 {% if organization_type == "business" %}
-{{ _("Zulip guide for businesses") }}
+{{ _("Quisvar guide for businesses") }}
 {% elif organization_type == "opensource" %}
-{{ _("Zulip guide for open-source projects") }}
+{{ _("Quisvar guide for open-source projects") }}
 {% elif organization_type == "education" %}
-{{ _("Zulip guide for education") }}
+{{ _("Quisvar guide for education") }}
 {% elif organization_type == "research" %}
-{{ _("Zulip guide for research") }}
+{{ _("Quisvar guide for research") }}
 {% elif organization_type == "event" %}
-{{ _("Zulip guide for events and conferences") }}
+{{ _("Quisvar guide for events and conferences") }}
 {% elif organization_type == "nonprofit" %}
-{{ _("Zulip guide for non-profits") }}
+{{ _("Quisvar guide for non-profits") }}
 {% elif organization_type == "community" %}
-{{ _("Zulip guide for communities") }}
+{{ _("Quisvar guide for communities") }}
 {% endif %}

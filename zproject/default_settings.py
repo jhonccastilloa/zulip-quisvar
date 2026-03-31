@@ -499,7 +499,11 @@ INVITES_NEW_REALM_LIMIT_DAYS = [(1, 100)]
 INVITES_NEW_REALM_DAYS = 7
 
 # Controls for which links are published in portico footers/headers/etc.
-REGISTER_LINK_DISABLED: bool | None = None
+REGISTER_LINK_DISABLED: bool | None = True
+
+PRODUCT_NAME = "Quisvar"
+PRIVATE_ENTERPRISE_SITE = True
+SHOW_SUPPORT_EMAIL = False
 
 # What domains to treat like the root domain
 ROOT_SUBDOMAIN_ALIASES = ["www"]
@@ -540,7 +544,7 @@ JWT_AUTH_KEYS: dict[str, JwtAuthKey] = {}
 # Django setting for what from address to use in error emails.
 SERVER_EMAIL = ZULIP_ADMINISTRATOR
 # Django setting for who receives error emails.
-ADMINS = (("Zulip Administrator", ZULIP_ADMINISTRATOR),)
+ADMINS = ((f"{PRODUCT_NAME} Administrator", ZULIP_ADMINISTRATOR),)
 
 # From address for welcome emails.
 WELCOME_EMAIL_SENDER: dict[str, str] | None = None
@@ -548,7 +552,7 @@ WELCOME_EMAIL_SENDER: dict[str, str] | None = None
 # Whether to send periodic digests of activity.
 SEND_DIGEST_EMAILS = True
 # The variable part of email sender names to be used for outgoing emails.
-INSTALLATION_NAME = EXTERNAL_HOST
+INSTALLATION_NAME = PRODUCT_NAME
 
 # Used to change the Zulip logo in portico pages.
 CUSTOM_LOGO_URL: str | None = None

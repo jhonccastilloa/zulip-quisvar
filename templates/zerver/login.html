@@ -2,7 +2,7 @@
 {% set entrypoint = "signup" %}
 
 {% block title %}
-<title>{{ _("Log in") }} | Zulip</title>
+<title>{{ _("Log in") }} | {{ product_name }}</title>
 {% endblock %}
 
 {# Login page. #}
@@ -15,7 +15,7 @@ page can be easily identified in it's respective JavaScript file. -->
 <div class="app login-page split-view new-style flex full-page">
     <div class="inline-block">
         <div class="lead">
-            <h1 class="get-started">{{ _("Log in to Zulip") }}</h1>
+            <h1 class="get-started">{{ _("Log in to %(product_name)s", product_name=product_name) }}</h1>
         </div>
 
         <div class="app-main login-page-container white-box inline-block">
@@ -52,15 +52,7 @@ page can be easily identified in it's respective JavaScript file. -->
                 {% endif %}
                 {% if no_auth_enabled %}
                     <div class="alert">
-                        <p>
-                            No authentication backends are enabled on this
-                            server yet, so it is impossible to log in!
-                        </p>
-
-                        <p>
-                            See the <a href="https://zulip.readthedocs.io/en/latest/production/install.html#step-3-configure-zulip">
-                            Zulip authentication documentation</a> to learn how to configure authentication backends.
-                        </p>
+                        <p>{{ _("No authentication backends are enabled on this server yet, so it is impossible to log in.") }}</p>
                     </div>
                 {% else %}
 
@@ -153,9 +145,11 @@ page can be easily identified in it's respective JavaScript file. -->
                     {% endfor %}
 
                     <div class="actions signup-link-wrapper">
+                        {% if not private_enterprise_site %}
                         {{ _("Don't have an account?")}}
                         {% if not register_link_disabled %}
                         <a class="register-link float-right" href="/register/">{{ _('Sign up') }}</a>
+                        {% endif %}
                         {% endif %}
                     </div>
                 {% endif %}

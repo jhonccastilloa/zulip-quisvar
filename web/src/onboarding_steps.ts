@@ -87,12 +87,12 @@ function show_navigation_tour_video(navigation_tour_video_url: string | null): v
         });
         let watch_later_clicked = false;
         dialog_widget.launch({
-            html_heading: $t_html({defaultMessage: "Welcome to Zulip!"}),
+            html_heading: $t_html({defaultMessage: "Welcome to Quisvar!"}),
             html_body,
             on_click() {
                 // Do nothing
             },
-            html_submit_button: $t_html({defaultMessage: "Skip video — I'm familiar with Zulip"}),
+            html_submit_button: $t_html({defaultMessage: "Skip video — I'm familiar with Quisvar"}),
             html_exit_button: $t_html({defaultMessage: "Watch later"}),
             close_on_submit: true,
             id: "navigation-tour-video-modal",

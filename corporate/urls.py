@@ -1,5 +1,6 @@
 from typing import Any
 
+from django.conf import settings
 from django.conf.urls import include
 from django.urls import path
 from django.views.generic import RedirectView, TemplateView
@@ -231,6 +232,34 @@ landing_page_urls = [
     ),
     path("communities/", communities_view),
 ]
+
+if settings.PRIVATE_ENTERPRISE_SITE:
+    private_site_redirect = RedirectView.as_view(url=settings.HOME_NOT_LOGGED_IN, permanent=False)
+    landing_page_urls = [
+        path("hello/", private_site_redirect),
+        path("features/", private_site_redirect),
+        path("plans/", private_site_redirect),
+        path("apps/", private_site_redirect),
+        path("apps/download/<platform>", private_site_redirect),
+        path("apps/<platform>", private_site_redirect),
+        path("development-community/", private_site_redirect),
+        path("attribution/", private_site_redirect),
+        path("team/", private_site_redirect),
+        path("history/", private_site_redirect),
+        path("values/", private_site_redirect),
+        path("partners/", private_site_redirect),
+        path("why-zulip/", private_site_redirect),
+        path("self-hosting/", private_site_redirect),
+        path("security/", private_site_redirect),
+        path("use-cases/", private_site_redirect),
+        path("for/communities/", private_site_redirect),
+        path("for/education/", private_site_redirect),
+        path("for/events/", private_site_redirect),
+        path("for/open-source/", private_site_redirect),
+        path("for/research/", private_site_redirect),
+        path("for/business/", private_site_redirect),
+        path("communities/", private_site_redirect),
+    ]
 
 # Redirects due to us having moved or combined landing pages:
 for redirect in LANDING_PAGE_REDIRECTS:

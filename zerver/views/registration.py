@@ -1265,15 +1265,9 @@ def create_realm(request: HttpRequest, confirmation_key: str | None = None) -> H
     if confirmation_key is None:
         realm_creation_obj: RealmCreationStatus | None = None
         if not settings.OPEN_REALM_CREATION:
-            return TemplateResponse(
-                request,
-                "zerver/portico_error_pages/realm_creation_disabled.html",
-            )
+            return redirect(settings.HOME_NOT_LOGGED_IN)
         if not password_auth_enabled():
-            return TemplateResponse(
-                request,
-                "zerver/portico_error_pages/realm_creation_disabled.html",
-            )
+            return redirect(settings.HOME_NOT_LOGGED_IN)
     else:
         try:
             realm_creation_obj = cast(
@@ -1548,6 +1542,8 @@ def accounts_home_from_multiuse_invite(request: HttpRequest, confirmation_key: s
 
 @typed_endpoint_without_parameters
 def find_account(request: HttpRequest) -> HttpResponse:
+    if settings.PRIVATE_ENTERPRISE_SITE:
+        return redirect(settings.HOME_NOT_LOGGED_IN)
     url = reverse("find_account")
     form = FindMyTeamForm()
     emails: list[str] = []

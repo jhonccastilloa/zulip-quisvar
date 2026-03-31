@@ -140,7 +140,7 @@ def fix_emojis(fragment: lxml.html.HtmlElement, emojiset: str) -> None:
 
 def fix_spoilers_in_html(fragment: lxml.html.HtmlElement, language: str) -> None:
     with override_language(language):
-        spoiler_title: str = _("Open Zulip to see the spoiler content")
+        spoiler_title: str = _("Open Quisvar to see the spoiler content")
     spoilers = fragment.find_class("spoiler-block")
     for spoiler in spoilers:
         header = spoiler.find_class("spoiler-header")[0]
@@ -162,7 +162,7 @@ def fix_spoilers_in_html(fragment: lxml.html.HtmlElement, language: str) -> None
 
 def fix_spoilers_in_text(content: str, language: str) -> str:
     with override_language(language):
-        spoiler_title: str = _("Open Zulip to see the spoiler content")
+        spoiler_title: str = _("Open Quisvar to see the spoiler content")
     lines = content.split("\n")
     output = []
     open_fence = None
@@ -501,7 +501,7 @@ def do_send_missedmessage_events_reply_in_zulip(
     if reply_to_address == FromAddress.NOREPLY:
         reply_to_name = ""
     else:
-        reply_to_name = "Zulip"
+        reply_to_name = settings.PRODUCT_NAME
 
     senders = list({m["message"].sender for m in missed_messages})
     message = missed_messages[0]["message"]
@@ -849,13 +849,16 @@ def send_account_registered_email(user: UserProfile, realm_creation: bool = Fals
         is_demo_organization=user.realm.demo_organization_scheduled_deletion_date is not None,
     )
 
-    account_registered_context["getting_organization_started_link"] = (
-        realm_url + "/help/moving-to-zulip"
-    )
-
-    account_registered_context["getting_user_started_link"] = (
-        realm_url + "/help/getting-started-with-zulip"
-    )
+    if settings.PRIVATE_ENTERPRISE_SITE:
+        account_registered_context["getting_organization_started_link"] = realm_url
+        account_registered_context["getting_user_started_link"] = realm_url
+    else:
+        account_registered_context["getting_organization_started_link"] = (
+            realm_url + "/help/moving-to-zulip"
+        )
+        account_registered_context["getting_user_started_link"] = (
+            realm_url + "/help/getting-started-with-zulip"
+        )
 
     # Imported here to avoid import cycles.
     from zproject.backends import ZulipLDAPAuthBackend, email_belongs_to_ldap
@@ -963,12 +966,20 @@ def enqueue_welcome_emails(
     # We only send the onboarding_team_to_zulip email to user who created the organization.
     if realm_creation or demo_organization_creator:
         onboarding_team_to_zulip_context = common_context(user)
+        if settings.PRIVATE_ENTERPRISE_SITE:
+            get_organization_started = realm_url
+            trying_out_zulip = realm_url
+            why_zulip = realm_url
+        else:
+            get_organization_started = realm_url + "/help/moving-to-zulip"
+            trying_out_zulip = realm_url + "/help/trying-out-zulip"
+            why_zulip = "https://zulip.com/why-zulip/"
         onboarding_team_to_zulip_context.update(
             unsubscribe_link=unsubscribe_link,
-            get_organization_started=realm_url + "/help/moving-to-zulip",
+            get_organization_started=get_organization_started,
             invite_users=realm_url + "/help/invite-users-to-join",
-            trying_out_zulip=realm_url + "/help/trying-out-zulip",
-            why_zulip="https://zulip.com/why-zulip/",
+            trying_out_zulip=trying_out_zulip,
+            why_zulip=why_zulip,
         )
 
         send_future_email(

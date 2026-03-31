@@ -21,7 +21,7 @@ hence the name.
         </div>
     </div>
     <div class="blueslip-error-container"></div>
-    {% if not isolated_page and not skip_footer %}
+    {% if not isolated_page and not skip_footer and not private_enterprise_site %}
     {% include 'zerver/footer.html' %}
     {% endif %}
 </div>

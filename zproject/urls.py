@@ -912,21 +912,36 @@ policy_documentation_view = MarkdownDirectoryView.as_view(
     template_name="zerver/documentation_main.html",
     policies_view=True,
 )
+private_site_redirect = RedirectView.as_view(url=settings.HOME_NOT_LOGGED_IN, permanent=False)
 
 # Redirects due to us having moved help center, API or policy documentation pages:
 for redirect in DOCUMENTATION_REDIRECTS:
     old_url = redirect.old_url.lstrip("/")
-    urls += [path(old_url, RedirectView.as_view(url=redirect.new_url, permanent=True))]
+    redirect_view = RedirectView.as_view(url=redirect.new_url, permanent=True)
+    if settings.PRIVATE_ENTERPRISE_SITE:
+        redirect_view = private_site_redirect
+    urls += [path(old_url, redirect_view)]
 
-urls += [
-    path("help/", help_documentation_view),
-    path("help/<path:article>", help_documentation_view),
-    path("api/", api_documentation_view),
-    path("api/<slug:article>", api_documentation_view),
-    path("policies/", policy_documentation_view),
-    path("policies/<slug:article>", policy_documentation_view),
-    path("doc-permalinks/<str:doc_id>", doc_permalinks_view),
-]
+if settings.PRIVATE_ENTERPRISE_SITE:
+    urls += [
+        path("help/", private_site_redirect),
+        path("help/<path:article>", private_site_redirect),
+        path("api/", private_site_redirect),
+        path("api/<slug:article>", private_site_redirect),
+        path("policies/", private_site_redirect),
+        path("policies/<slug:article>", private_site_redirect),
+        path("doc-permalinks/<str:doc_id>", private_site_redirect),
+    ]
+else:
+    urls += [
+        path("help/", help_documentation_view),
+        path("help/<path:article>", help_documentation_view),
+        path("api/", api_documentation_view),
+        path("api/<slug:article>", api_documentation_view),
+        path("policies/", policy_documentation_view),
+        path("policies/<slug:article>", policy_documentation_view),
+        path("doc-permalinks/<str:doc_id>", doc_permalinks_view),
+    ]
 
 urls += [
     path(
@@ -951,7 +966,9 @@ urls += [
     ),
 ]
 
-if not settings.CORPORATE_ENABLED:  # nocoverage
+if settings.PRIVATE_ENTERPRISE_SITE:
+    urls += [path("apps/", private_site_redirect)]
+elif not settings.CORPORATE_ENABLED:  # nocoverage
     # This conditional behavior cannot be tested directly, since
     # urls.py is not readily reloaded in Django tests. See the block
     # comment inside apps_view for details.

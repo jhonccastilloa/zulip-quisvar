@@ -51,6 +51,8 @@ def common_context(user: UserProfile) -> dict[str, Any]:
         "external_host": settings.EXTERNAL_HOST,
         "user_name": user.full_name,
         "corporate_enabled": settings.CORPORATE_ENABLED,
+        "product_name": settings.PRODUCT_NAME,
+        "private_enterprise_site": settings.PRIVATE_ENTERPRISE_SITE,
     }
 
 
@@ -81,6 +83,8 @@ def get_valid_realm_from_request(request: HttpRequest) -> Realm:
 
 
 def get_apps_page_url() -> str:
+    if settings.PRIVATE_ENTERPRISE_SITE:
+        return settings.HOME_NOT_LOGGED_IN
     if settings.CORPORATE_ENABLED:
         return "/apps/"
     return "https://zulip.com/apps/"
@@ -159,10 +163,13 @@ def zulip_default_context(request: HttpRequest) -> dict[str, Any]:
     # Used to remove links to Zulip docs and landing page from footer of self-hosted pages.
     corporate_enabled = settings.CORPORATE_ENABLED
 
-    support_email = FromAddress.SUPPORT
-    support_email_html_tag = SafeString(
-        f'<a href="mailto:{escape(support_email)}">{escape(support_email)}</a>'
-    )
+    support_email = None
+    support_email_html_tag: SafeString | str = ""
+    if settings.SHOW_SUPPORT_EMAIL:
+        support_email = FromAddress.SUPPORT
+        support_email_html_tag = SafeString(
+            f'<a href="mailto:{escape(support_email)}">{escape(support_email)}</a>'
+        )
 
     # Sync this with default_params_schema in base_page_params.ts.
     default_page_params: dict[str, Any] = {
@@ -205,6 +212,8 @@ def zulip_default_context(request: HttpRequest) -> dict[str, Any]:
         "default_page_params": default_page_params,
         "corporate_enabled": corporate_enabled,
         "non_realm_specific_page": non_realm_specific_page,
+        "product_name": settings.PRODUCT_NAME,
+        "private_enterprise_site": settings.PRIVATE_ENTERPRISE_SITE,
     }
 
     if settings.SENTRY_FRONTEND_DSN is not None:

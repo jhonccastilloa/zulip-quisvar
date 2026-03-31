@@ -1,1 +1,1 @@
-{% trans %}Your Zulip organization {{ realm_name }} has been deactivated{% endtrans %}
+{% trans %}Your Quisvar organization {{ realm_name }} has been deactivated{% endtrans %}

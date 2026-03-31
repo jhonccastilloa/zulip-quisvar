@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<p>{{ _("We noticed a recent login for the following Zulip account.") }}</p>
+<p>{{ _("We noticed a recent login for the following Quisvar account.") }}</p>
 <p>
     <ul>
         <li>
@@ -33,12 +33,16 @@
 <p>{{ _("If this was you, great! There's nothing else you need to do.") }}</p>
 
 <p>
+    {% if support_email %}
     {% trans support_email=macros.email_tag(support_email), reset_link=realm_url + "/accounts/password/reset/" %}If you do not recognize this login, or think your account may have been compromised, please <a href="{{ reset_link }}">reset your password</a> or contact us immediately at {{ support_email }}.{% endtrans %}
+    {% else %}
+    {% trans reset_link=realm_url + "/accounts/password/reset/" %}If you do not recognize this login, or think your account may have been compromised, please <a href="{{ reset_link }}">reset your password</a> immediately.{% endtrans %}
+    {% endif %}
 </p>
 
 <p>
     {{ _("Thanks,") }}<br />
-    {{ _("Zulip Security") }}
+    {{ _("Quisvar Security") }}
 </p>
 {% endblock %}
 
