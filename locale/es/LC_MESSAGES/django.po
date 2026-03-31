@@ -4758,7 +4758,7 @@ msgstr ""
 "{user} cambió los [permisos de publicación]({help_link}) para este canal:\n"
 "\n"
 "* **Antiguo**: {old_setting_description}\n"
-"* **Nuevo**: {new_setting_description}"
+"* **Nuevo**: {new_setting_description}\n"
 
 #: zerver/actions/streams.py:1543
 #, python-brace-format
@@ -5595,8 +5595,9 @@ msgid ""
 "- Reason: **{report_type}**\n"
 "- Notes:\n"
 msgstr ""
+"\n"
 "- Motivo: **{report_type}**\n"
-"- Notas:"
+"- Notas:\n"
 
 #: zerver/lib/message_report.py:91
 #, python-brace-format
@@ -5660,7 +5661,9 @@ msgid ""
 "\n"
 "To learn more, check out our [using Zulip for a class guide]"
 "({getting_started_url})!\n"
-msgstr "Para obtener más información, consulta nuestra [usando Zulip como guía de clase]({getting_started_url})."
+msgstr ""
+"\n"
+"Para obtener más información, consulta nuestra [usando Zulip como guía de clase]({getting_started_url}).\n"
 
 #: zerver/lib/onboarding.py:95
 #, python-brace-format
@@ -5668,7 +5671,9 @@ msgid ""
 "\n"
 "To learn more, check out our [getting started guide]"
 "({getting_started_url})!\n"
-msgstr "Para obtener más información, consulte nuestra [guía de introducción]({getting_started_url})."
+msgstr ""
+"\n"
+"Para obtener más información, consulte nuestra [guía de introducción]({getting_started_url}).\n"
 
 #: zerver/lib/onboarding.py:103
 #, python-brace-format
@@ -5676,7 +5681,9 @@ msgid ""
 "\n"
 "We also have a guide for [setting up Zulip for a class]"
 "({organization_setup_url}).\n"
-msgstr "También tenemos una guía para [configurar Zulip para una clase]({organization_setup_url})."
+msgstr ""
+"\n"
+"También tenemos una guía para [configurar Zulip para una clase]({organization_setup_url}).\n"
 
 #: zerver/lib/onboarding.py:107
 #, python-brace-format
@@ -5684,7 +5691,9 @@ msgid ""
 "\n"
 "We also have a guide for [moving your organization to Zulip]"
 "({organization_setup_url}).\n"
-msgstr "También tenemos una guía para [mover su organización a Zulip]({organization_setup_url})."
+msgstr ""
+"\n"
+"También tenemos una guía para [mover su organización a Zulip]({organization_setup_url}).\n"
 
 #: zerver/lib/onboarding.py:114
 #, python-brace-format
@@ -5698,9 +5707,11 @@ msgid ""
 "will be **automatically deleted** in 30 days, unless it's [converted into\n"
 "a permanent organization]({convert_demo_organization_help_url}).\n"
 msgstr ""
+""
+"\n"
 "Tenga en cuenta que esta es una [organización de demostración]({demo_organization_help_url}) y\n"
 "se **eliminará automáticamente** en 30 días, a menos que se [convierta en\n"
-"una organización permanente]({convert_demo_organization_help_url})."
+"una organización permanente]({convert_demo_organization_help_url}).\n"
 
 #: zerver/lib/onboarding.py:125
 msgid ""
@@ -5708,8 +5719,9 @@ msgid ""
 "I've kicked off some conversations to help you get started. You can find\n"
 "them in your [Inbox](/#inbox).\n"
 msgstr ""
+"\n"
 "He iniciado algunas conversaciones para ayudarte a comenzar. puedes encontrar\n"
-"en tu [Bandeja de entrada](/#bandeja de entrada)."
+"en tu [Bandeja de entrada](/#bandeja de entrada).\n"
 
 #: zerver/lib/onboarding.py:130
 #, python-brace-format
@@ -5717,7 +5729,9 @@ msgid ""
 "\n"
 "You can always come back to the [Welcome to Zulip video]"
 "({navigation_tour_video_url}) for a quick app overview.\n"
-msgstr "Siempre puedes volver al [video de bienvenida a Zulip] ({navigation_tour_video_url}) para obtener una descripción general rápida de la aplicación."
+msgstr ""
+"\n"
+"Siempre puedes volver al [video de bienvenida a Zulip] ({navigation_tour_video_url}) para obtener una descripción general rápida de la aplicación.\n"
 
 #: zerver/lib/onboarding.py:141
 #, python-brace-format
@@ -5733,13 +5747,14 @@ msgid ""
 "{demo_organization_text}\n"
 "\n"
 msgstr ""
+"\n"
 "¡Hola y bienvenido a Zulip!👋 {inform_about_tracked_onboarding_messages_text}\n"
 "\n"
 "{getting_started_text} {organization_setup_text}\n"
 "\n"
 "{navigation_tour_video_text}\n"
 "\n"
-"{demo_organization_text}"
+"{demo_organization_text}\n"
 
 #: zerver/lib/onboarding.py:211
 msgid ""
@@ -5747,8 +5762,9 @@ msgid ""
 "You can [download](/apps/) the [mobile and desktop apps](/apps/).\n"
 "Zulip also works great in a browser.\n"
 msgstr ""
+"\n"
 "Puede [descargar](/apps/) las [aplicaciones móviles y de escritorio](/apps/).\n"
-"Zulip también funciona muy bien en un navegador."
+"Zulip también funciona muy bien en un navegador.\n"
 
 #: zerver/lib/onboarding.py:216
 msgid ""
@@ -5757,8 +5773,9 @@ msgid ""
 "change-your-profile-picture)\n"
 "and edit your [profile information](/help/edit-your-profile).\n"
 msgstr ""
+"\n"
 "Vaya a [Configuración de perfil](#settings/profile) para agregar una [imagen de perfil](/help/change-your-profile-picture)\n"
-"y edite su [información de perfil](/help/edit-your-profile)."
+"y edite su [información de perfil](/help/edit-your-profile).\n"
 
 #: zerver/lib/onboarding.py:221
 msgid ""
@@ -5770,10 +5787,11 @@ msgid ""
 "Zulip\n"
 "experience in your [Preferences](#settings/preferences).\n"
 msgstr ""
+"\n"
 "Puedes cambiar entre [tema claro y oscuro](/ayuda/tema-oscuro), [elige tu\n"
 "conjunto de emoji favorito](/help/emoji-and-emoticons#change-your-emoji-set), [cambiar\n"
 "su idioma](/ayuda/cambiar-su-idioma), y personalizar su Zulip\n"
-"experiencia en tus [Preferencias](#configuraciones/preferencias)."
+"experiencia en tus [Preferencias](#configuraciones/preferencias).\n"
 
 #: zerver/lib/onboarding.py:228
 #, python-brace-format
@@ -5785,10 +5803,11 @@ msgid ""
 "\n"
 "[Browse and subscribe to channels]({settings_link}).\n"
 msgstr ""
+"\n"
 "Los canales organizan conversaciones según quién necesita verlas. Por ejemplo,\n"
 "Es común tener un canal para cada equipo de una organización.\n"
 "\n"
-"[Buscar y suscribirse a canales]({settings_link})."
+"[Buscar y suscribirse a canales]({settings_link}).\n"
 
 #: zerver/lib/onboarding.py:235
 msgid ""
@@ -5806,6 +5825,7 @@ msgid ""
 "being\n"
 "discussed.\n"
 msgstr ""
+"\n"
 "[Temas](/help/introduction-to-topics) resume lo que es cada conversación en Zulip\n"
 "se trata. Puedes leer Zulip un tema a la vez, viendo cada mensaje en\n"
 "contexto, sin importar cuántas otras conversaciones estén teniendo lugar.\n"
@@ -5814,7 +5834,7 @@ msgstr ""
 "piensa en terminar la frase: “Oye, ¿podemos charlar sobre…?”\n"
 "\n"
 "Consulte [Conversaciones recientes](#recent) para obtener una lista de los temas que se están abordando.\n"
-"discutido."
+"discutido.\n"
 
 #: zerver/lib/onboarding.py:247
 msgid ""
@@ -5824,10 +5844,11 @@ msgid ""
 "\n"
 "Press `?` any time to see a [cheat sheet](#keyboard-shortcuts).\n"
 msgstr ""
+"\n"
 "Los [atajos de teclado](#keyboard-shortcuts) de Zulip te permiten navegar por la aplicación\n"
 "rápida y eficientemente.\n"
 "\n"
-"Presione `?` en cualquier momento para ver una [hoja de referencia](#atajos de teclado)."
+"Presione `?` en cualquier momento para ver una [hoja de referencia](#atajos de teclado).\n"
 
 #: zerver/lib/onboarding.py:254
 msgid ""
@@ -5840,11 +5861,12 @@ msgid ""
 "global\n"
 "times, and more.\n"
 msgstr ""
+"\n"
 "Puedes **formatear** *tu* `mensaje` usando los prácticos botones de formato, o\n"
 "escribiendo su formato con Markdown.\n"
 "\n"
 "Consulte la [hoja de referencia](#message-formatting) para conocer los spoilers globales\n"
-"veces y más."
+"veces y más.\n"
 
 #: zerver/lib/onboarding.py:262
 #, python-brace-format
@@ -5855,10 +5877,11 @@ msgid ""
 "Check out our [Getting started guide](/help/getting-started-with-zulip),\n"
 "or browse the [help center](/help/) to learn more!\n"
 msgstr ""
+"\n"
 "Aquí hay algunos mensajes que entiendo: {bot_commands}\n"
 "\n"
 "Consulte nuestra [Guía de introducción](/help/getting-started-with-zulip),\n"
-"O navega por el [centro de ayuda](/help/) para obtener más información."
+"O navega por el [centro de ayuda](/help/) para obtener más información.\n"
 
 #: zerver/lib/onboarding.py:269
 #, python-brace-format
@@ -5867,8 +5890,9 @@ msgid ""
 "You can chat with me as much as you like! To\n"
 "get help, try one of the following messages: {bot_commands}\n"
 msgstr ""
+"\n"
 "¡Puedes chatear conmigo tanto como quieras! a\n"
-"obtener ayuda, pruebe con uno de los siguientes mensajes: {bot_commands}"
+"obtener ayuda, pruebe con uno de los siguientes mensajes: {bot_commands}\n"
 
 #: zerver/lib/onboarding.py:361
 #, python-brace-format
@@ -5881,15 +5905,18 @@ msgid ""
 "or even move a topic [to a different channel]"
 "({move_content_another_channel_help_url}).\n"
 msgstr ""
+"\n"
 "Si algo está fuera de lugar, es fácil [mover mensajes]({move_content_another_topic_help_url}),\n"
 "[renombrar]({rename_topic_help_url}) y [dividir]({move_content_another_topic_help_url}) temas,\n"
-"o incluso mover un tema [a un canal diferente]({move_content_another_channel_help_url})."
+"o incluso mover un tema [a un canal diferente]({move_content_another_channel_help_url}).\n"
 
 #: zerver/lib/onboarding.py:372
 msgid ""
 "\n"
 ":point_right: Try moving this message to another topic and back.\n"
-msgstr ":point_right: Intente mover este mensaje a otro tema y viceversa."
+msgstr ""
+"\n"
+":point_right: Intente mover este mensaje a otro tema y viceversa.\n"
 
 #: zerver/lib/onboarding.py:376
 #, python-brace-format
@@ -5904,12 +5931,13 @@ msgid ""
 "sidebar\n"
 "and above.\n"
 msgstr ""
+"\n"
 "Zulip está organizado para ayudarle a comunicarse de manera más eficiente. Las conversaciones son\n"
 "etiquetados con temas, que resumen de qué trata la conversación.\n"
 "\n"
 "Por ejemplo, este mensaje está en el tema \"{topic_name}\" en la\n"
 "Canal #**{zulip_discussion_channel_name}**, como puedes ver en la barra lateral izquierda\n"
-"y arriba."
+"y arriba.\n"
 
 #: zerver/lib/onboarding.py:385 zerver/lib/onboarding.py:437
 #: zerver/lib/onboarding.py:528
@@ -5923,8 +5951,9 @@ msgid ""
 "context,\n"
 "no matter how many other conversations are going on.\n"
 msgstr ""
+"\n"
 "Puedes leer Zulip una conversación a la vez, viendo cada mensaje en contexto,\n"
-"no importa cuántas otras conversaciones estén teniendo lugar."
+"no importa cuántas otras conversaciones estén teniendo lugar.\n"
 
 #: zerver/lib/onboarding.py:393
 msgid ""
@@ -5932,8 +5961,9 @@ msgid ""
 ":point_right: When you're ready, check out your [Inbox](/#inbox) for other\n"
 "conversations with unread messages.\n"
 msgstr ""
+"\n"
 ":point_right: Cuando estés listo, revisa tu [Bandeja de entrada](/#entrada) para ver otros\n"
-"conversaciones con mensajes no leídos."
+"conversaciones con mensajes no leídos.\n"
 
 #: zerver/lib/onboarding.py:398
 msgid ""
@@ -5942,8 +5972,9 @@ msgid ""
 "click\n"
 "the `+` button next to its name.\n"
 msgstr ""
+"\n"
 "Para iniciar una nueva conversación, elija un canal en la barra lateral izquierda y haga clic en\n"
-"el botón `+` al lado de su nombre."
+"el botón `+` al lado de su nombre.\n"
 
 #: zerver/lib/onboarding.py:403
 msgid ""
@@ -5952,14 +5983,17 @@ msgid ""
 "“Hey,\n"
 "can we chat about…?”\n"
 msgstr ""
+"\n"
 "Etiqueta tu conversación con un tema. Piensa en terminar la frase: “Oye,\n"
-"¿Podemos charlar sobre...?"
+"¿Podemos charlar sobre...?\n"
 
 #: zerver/lib/onboarding.py:408
 msgid ""
 "\n"
 ":point_right: Try starting a new conversation in this channel.\n"
-msgstr ":point_right: Intenta iniciar una nueva conversación en este canal."
+msgstr ""
+"\n"
+":point_right: Intenta iniciar una nueva conversación en este canal.\n"
 
 #: zerver/lib/onboarding.py:413
 #, python-brace-format
@@ -5967,7 +6001,9 @@ msgid ""
 "\n"
 ":point_right:  Use this topic to try out [Zulip's messaging features]"
 "({format_message_help_url}).\n"
-msgstr ":point_right: Utilice este tema para probar [las funciones de mensajería de Zulip]({format_message_help_url})."
+msgstr ""
+"\n"
+":point_right: Utilice este tema para probar [las funciones de mensajería de Zulip]({format_message_help_url}).\n"
 
 #: zerver/lib/onboarding.py:419
 #, python-brace-format
@@ -5988,6 +6024,7 @@ msgid ""
 "\n"
 "```\n"
 msgstr ""
+"\n"
 "```spoiler ¿Quieres ver algunos ejemplos?\n"
 "\n"
 "````pitón\n"
@@ -6001,21 +6038,25 @@ msgstr ""
 "\n"
 "Enlace a una conversación: #**{zulip_discussion_channel_name}>{topic_name}**\n"
 "\n"
-"```"
+"```\n"
 
 #: zerver/lib/onboarding.py:440
 msgid ""
 "\n"
 "This **greetings** topic is a great place to say “hi” :wave: to your "
 "teammates.\n"
-msgstr "Este tema de **saludos** es un excelente lugar para decir “hola” :wave: a tus compañeros de equipo."
+msgstr ""
+"\n"
+"Este tema de **saludos** es un excelente lugar para decir “hola” :wave: a tus compañeros de equipo.\n"
 
 #: zerver/lib/onboarding.py:444
 msgid ""
 "\n"
 ":point_right: Click on this message to start a new message in the same "
 "conversation.\n"
-msgstr ":point_right: Haga clic en este mensaje para iniciar un mensaje nuevo en la misma conversación."
+msgstr ""
+"\n"
+":point_right: Haga clic en este mensaje para iniciar un mensaje nuevo en la misma conversación.\n"
 
 #: zerver/lib/onboarding.py:464
 msgid "moving messages"
@@ -7224,7 +7265,9 @@ msgid ""
 "\n"
 "You asked to watch the [Welcome to Zulip video]({navigation_tour_video_url}) "
 "later. Is this a good time?\n"
-msgstr "Solicitaste ver el [video de bienvenida a Zulip] ({navigation_tour_video_url}) más tarde. ¿Es este un buen momento?"
+msgstr ""
+"\n"
+"Solicitaste ver el [video de bienvenida a Zulip] ({navigation_tour_video_url}) más tarde. ¿Es este un buen momento?\n"
 
 #: zerver/views/presence.py:48
 msgid "Presence is not supported for bot users."
