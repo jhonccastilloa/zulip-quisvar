@@ -33,7 +33,6 @@ from zerver.decorator import require_post, require_realm_admin, require_realm_ow
 from zerver.forms import check_subdomain_available as check_subdomain
 from zerver.lib.demo_organizations import check_demo_organization_has_set_email
 from zerver.lib.exceptions import JsonableError, OrganizationOwnerRequiredError
-from zerver.lib.i18n import get_available_language_codes
 from zerver.lib.response import json_success
 from zerver.lib.retention import parse_message_retention_days
 from zerver.lib.streams import access_stream_by_id
@@ -219,7 +218,7 @@ def update_realm(
 
     # Additional validation/error checking beyond types go here, so
     # the entire request can succeed or fail atomically.
-    if default_language is not None and default_language not in get_available_language_codes():
+    if default_language is not None and default_language != settings.LANGUAGE_CODE:
         raise JsonableError(_("Invalid language '{language}'").format(language=default_language))
     if authentication_methods is not None:
         if not user_profile.is_realm_owner:

@@ -31,7 +31,7 @@ class PreregistrationRealm(models.Model):
         choices=[(t["id"], t["name"]) for t in Realm.ORG_TYPES.values()],
     )
     default_language = models.CharField(
-        default="en",
+        default="es",
         max_length=MAX_LANGUAGE_ID_LENGTH,
     )
     string_id = models.CharField(max_length=Realm.MAX_REALM_SUBDOMAIN_LENGTH)

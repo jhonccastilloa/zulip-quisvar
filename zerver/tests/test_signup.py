@@ -2497,9 +2497,7 @@ class UserSignUpTest(ZulipTestCase):
         self.assertTrue("ERROR:root:Failed to deliver email during realm creation" in m.output[0])
 
     def test_user_default_language_and_timezone(self) -> None:
-        """
-        Check if the default language of new user is set using the browser locale
-        """
+        """Check if the realm default language is used for new users."""
         email = self.nonreg_email("newguy")
         password = "newpassword"
         timezone = "America/Denver"
@@ -2526,8 +2524,7 @@ class UserSignUpTest(ZulipTestCase):
         self.assertEqual(result.status_code, 302)
 
         user_profile = self.nonreg_user("newguy")
-        self.assertNotEqual(user_profile.default_language, realm.default_language)
-        self.assertEqual(user_profile.default_language, "fr")
+        self.assertEqual(user_profile.default_language, realm.default_language)
         self.assertEqual(user_profile.timezone, timezone)
         from django.core.mail import outbox
 
@@ -4548,13 +4545,13 @@ class UserSignUpTest(ZulipTestCase):
         realm = get_realm("zulip")
         req = HostRequestMock()
         req.META["HTTP_ACCEPT_LANGUAGE"] = "de,en"
-        self.assertEqual(get_default_language_for_new_user(realm, request=req), "de")
+        self.assertEqual(get_default_language_for_new_user(realm, request=req), realm.default_language)
 
         do_set_realm_property(realm, "default_language", "hi", acting_user=None)
         realm.refresh_from_db()
         req = HostRequestMock()
         req.META["HTTP_ACCEPT_LANGUAGE"] = "de,en"
-        self.assertEqual(get_default_language_for_new_user(realm, request=req), "de")
+        self.assertEqual(get_default_language_for_new_user(realm, request=req), "hi")
 
         req = HostRequestMock()
         req.META["HTTP_ACCEPT_LANGUAGE"] = ""

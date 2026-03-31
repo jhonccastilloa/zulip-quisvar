@@ -60,7 +60,6 @@ from zerver.forms import (
 from zerver.lib.email_validation import email_allowed_for_realm, validate_email_not_already_in_realm
 from zerver.lib.exceptions import JsonableError, RateLimitedError
 from zerver.lib.i18n import (
-    get_browser_language_code,
     get_default_language_for_anonymous_user,
     get_default_language_for_new_user,
     get_language_name,
@@ -1362,12 +1361,8 @@ def create_realm(request: HttpRequest, confirmation_key: str | None = None) -> H
             )
             return HttpResponseRedirect(url)
     else:
-        default_language_code = get_browser_language_code(request)
-        if default_language_code is None:
-            default_language_code = "en"
-
         initial_data = {
-            "realm_default_language": default_language_code,
+            "realm_default_language": settings.LANGUAGE_CODE,
         }
         if settings.USING_CAPTCHA and settings.ALTCHA_HMAC_KEY:
             form = CaptchaRealmCreationForm(request=request, initial=initial_data)

@@ -1,7 +1,6 @@
 from typing import Annotated, Literal, TypeAlias
 
 from annotated_types import Len
-from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
 from django.http import HttpRequest, HttpResponse
 from django.utils.translation import gettext as _
@@ -95,9 +94,7 @@ def events_register_backend(
             )
 
         # Language set by spectator to be passed down to clients as user_settings.
-        spectator_requested_language = request.COOKIES.get(
-            settings.LANGUAGE_COOKIE_NAME, realm.default_language
-        )
+        spectator_requested_language = realm.default_language
 
         all_public_streams = False
         include_streams = False

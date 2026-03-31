@@ -42,7 +42,6 @@ from zerver.lib.email_validation import (
     validate_email_not_already_in_realm,
 )
 from zerver.lib.exceptions import JsonableError, RateLimitedError, UserDeactivatedError
-from zerver.lib.i18n import get_available_language_codes
 from zerver.lib.rate_limiter import RateLimitedUser
 from zerver.lib.response import json_success
 from zerver.lib.send_email import FromAddress, send_email
@@ -198,10 +197,9 @@ def check_settings_values(
     email_notifications_batching_period_seconds: int | None,
     default_language: str | None = None,
 ) -> None:
-    # We can't use typed_endpoint for this widget because
-    # get_available_language_codes requires provisioning to be
-    # complete.
-    if default_language is not None and default_language not in get_available_language_codes():
+    # We can't use typed_endpoint for this widget because the allowed
+    # language is derived from the configured server default.
+    if default_language is not None and default_language != settings.LANGUAGE_CODE:
         raise JsonableError(_("Invalid default_language"))
 
     if (

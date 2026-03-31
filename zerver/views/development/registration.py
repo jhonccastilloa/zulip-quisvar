@@ -65,7 +65,7 @@ def register_development_realm(request: HttpRequest) -> HttpResponse:
     email = f"{name}@zulip.com"
     realm_name = f"realm-{count}"
     realm_type = Realm.ORG_TYPES["business"]["id"]
-    realm_default_language = "en"
+    realm_default_language = settings.LANGUAGE_CODE
     realm_subdomain = realm_name
     prereg_realm = create_preregistration_realm(
         email, realm_name, realm_subdomain, realm_type, realm_default_language
@@ -97,7 +97,7 @@ def register_demo_development_realm(request: HttpRequest) -> HttpResponse:
     # Demo organization owners are not required to provide a name or email.
     name = "Your name"
     email = ""
-    realm_default_language = "en"
+    realm_default_language = settings.LANGUAGE_CODE
     realm_name = generate_demo_realm_name()
     realm_type = Realm.ORG_TYPES["unspecified"]["id"]
     realm_subdomain = realm_name

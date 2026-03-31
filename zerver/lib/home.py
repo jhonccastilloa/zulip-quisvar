@@ -135,7 +135,7 @@ def build_page_params_for_home_page_load(
         default_language = realm.default_language
 
     if user_profile is None:
-        request_language = request.COOKIES.get(settings.LANGUAGE_COOKIE_NAME, default_language)
+        request_language = default_language
         split_url = urlsplit(request.build_absolute_uri())
         show_try_zulip_modal = (
             settings.DEVELOPMENT or split_url.hostname == "chat.zulip.org"

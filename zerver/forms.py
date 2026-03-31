@@ -33,7 +33,7 @@ from zerver.lib.email_validation import (
     validate_is_not_disposable,
 )
 from zerver.lib.exceptions import JsonableError, RateLimitedError
-from zerver.lib.i18n import get_language_list
+from zerver.lib.i18n import get_language_name
 from zerver.lib.name_restrictions import is_reserved_subdomain
 from zerver.lib.rate_limiter import RateLimitedObject, rate_limit_request_by_ip
 from zerver.lib.subdomains import get_subdomain, is_root_domain_available
@@ -150,7 +150,7 @@ class RealmDetailsForm(forms.Form):
 
         super().__init__(*args, **kwargs)
         self.fields["realm_default_language"] = forms.ChoiceField(
-            choices=[(lang["code"], lang["name"]) for lang in get_language_list()],
+            choices=[(settings.LANGUAGE_CODE, get_language_name(settings.LANGUAGE_CODE))],
         )
 
     def clean_realm_subdomain(self) -> str:
@@ -199,7 +199,7 @@ class RegistrationForm(RealmDetailsForm):
             required=self.realm_creation,
         )
         self.fields["realm_default_language"] = forms.ChoiceField(
-            choices=[(lang["code"], lang["name"]) for lang in get_language_list()],
+            choices=[(settings.LANGUAGE_CODE, get_language_name(settings.LANGUAGE_CODE))],
             required=self.realm_creation,
         )
         self.fields["how_realm_creator_found_zulip"] = forms.ChoiceField(

@@ -435,7 +435,7 @@ class Realm(models.Model):
     MESSAGE_EDIT_HISTORY_VISIBILITY_POLICY_TYPES = list(MessageEditHistoryVisibilityPolicyEnum)
 
     # Defaults for new users
-    default_language = models.CharField(default="en", max_length=MAX_LANGUAGE_ID_LENGTH)
+    default_language = models.CharField(default="es", max_length=MAX_LANGUAGE_ID_LENGTH)
 
     ZULIP_DISCUSSION_CHANNEL_NAME = gettext_lazy("Zulip")
     ZULIP_SANDBOX_CHANNEL_NAME = gettext_lazy("sandbox")
