@@ -66,6 +66,13 @@ $(() => {
         "#id_new_password2 ~ .password_visibility_toggle",
     );
 
+    const validator_messages = {
+        required: $t({defaultMessage: "This field is required."}),
+        email: $t({defaultMessage: "Please enter a valid email address."}),
+        url: $t({defaultMessage: "Please enter a valid URL."}),
+    };
+    $.extend($.validator.messages, validator_messages);
+
     $("#registration, #password_reset, #create_realm").validate({
         rules: {
             password: {
@@ -200,6 +207,14 @@ $(() => {
     $("#login_form").validate({
         errorClass: "text-error",
         wrapper: "div",
+        messages: {
+            username: {
+                required: validator_messages.required,
+            },
+            password: {
+                required: validator_messages.required,
+            },
+        },
         submitHandler(form) {
             $("#login_form").find(".loader").css("display", "inline-block");
             $("#login_form").find("button .text").hide();
