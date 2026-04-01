@@ -736,9 +736,7 @@ MAX_PER_USER_MONTHLY_AI_COST: float | None = 0.5
 
 # URL of the navigation tour video displayed to new users.
 # Set it to None to disable it.
-NAVIGATION_TOUR_VIDEO_URL: str | None = (
-    "https://static.zulipchat.com/static/navigation-tour-video/zulip-10.mp4"
-)
+NAVIGATION_TOUR_VIDEO_URL: str | None = None
 
 # Webhook signature verification.
 VERIFY_WEBHOOK_SIGNATURES = True

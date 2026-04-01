@@ -131,7 +131,9 @@ I've kicked off some conversations to help you get started. You can find
 them in your [Inbox](/#inbox).
 """)
 
-        navigation_tour_video_string = _("""
+        navigation_tour_video_string = ""
+        if settings.NAVIGATION_TOUR_VIDEO_URL is not None:
+            navigation_tour_video_string = _("""
 You can always come back to the [Welcome to Quisvar video]({navigation_tour_video_url}) for a quick app overview.
 """).format(navigation_tour_video_url=settings.NAVIGATION_TOUR_VIDEO_URL)
 

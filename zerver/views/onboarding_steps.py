@@ -34,6 +34,7 @@ def mark_onboarding_step_as_read(
 
     if schedule_navigation_tour_video_reminder_delay is not None:
         assert onboarding_step == "navigation_tour_video"
+        assert settings.NAVIGATION_TOUR_VIDEO_URL is not None
 
         realm = user.realm
         sender = get_system_bot(settings.WELCOME_BOT, realm.id)
