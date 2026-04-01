@@ -3747,7 +3747,7 @@ msgstr "Sesión de inicio de sesión no válida o caducada."
 
 #: templates/zerver/login.html:18
 msgid "Log in to Zulip"
-msgstr "Iniciar sesión en Zulip"
+msgstr "Iniciar sesión en %(product_name)s"
 
 #: templates/zerver/login.html:44
 msgid "View without an account"

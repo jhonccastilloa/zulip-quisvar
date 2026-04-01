@@ -7,7 +7,9 @@ class zulip::golang {
 
   zulip::external_dep { 'golang':
     version        => $version,
-    url            => "https://go.dev/dl/go${version}.linux-${zulip::common::goarch}.tar.gz",
+    # Use the direct download host; it is generally more reliable in container builds
+    # than the go.dev front door, while serving the same tarball content.
+    url            => "https://dl.google.com/go/go${version}.linux-${zulip::common::goarch}.tar.gz",
     tarball_prefix => 'go',
   }
 }

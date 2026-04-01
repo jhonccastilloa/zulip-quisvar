@@ -2007,7 +2007,7 @@
   "Zulip Server {display_version} (patched)": "Servidor Zulip {display_version} (parchado)",
   "Zulip lets you follow topics you are interested in, and mute topics you want to ignore. You can also <z-automatically-follow>automatically follow</z-automatically-follow> topics you start or participate in, and topics where you're mentioned.": "Zulip te permite seguir temas que te interesen y silenciar aquellos que prefieres ignorar. También puedes <z-automatically-follow>seguir automaticamente</z-automatically-follow> temas que crees, participas o en los que seas mencionado.",
   "Zulip needs to send email to confirm users' addresses and send notifications.": "Zulip necesita enviar correos para confirmar las direcciones de los usuarios y enviar notificaciones.",
-  "Zulip needs your permission to enable desktop notifications for important messages.": "Zulip necesita su permiso para habilitar notificaciones de escritorio para mensajes importantes.",
+  "Zulip needs your permission to enable desktop notifications for important messages.": "La aplicación necesita su permiso para habilitar notificaciones de escritorio para mensajes importantes.",
   "Zulip needs your permission to enable desktop notifications.": "Zulip necesita su permiso para habilitar las notificaciones de escritorio.",
   "Zulip update announcements": "Anuncios de actualizaciones de Zulip",
   "Zulip's translations are contributed by our amazing community of volunteer translators. If you'd like to help, see the <z-link>Zulip translation guidelines</z-link>.": "Las traducciones de Zulip son gracias a las contribuciones de traductores voluntarios. Si te gustaría ayudar, puedes ver las <z-link>guías de traducción de Zulip</z-link>.",
